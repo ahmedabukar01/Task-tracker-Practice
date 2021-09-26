@@ -1,9 +1,13 @@
 import React from 'react'
+import Singletask from './Singletask'
 
-export const Tasks = () => {
+const Tasks = ({tasks}) => {
+    
     return (
         <div className="tasks">
-            <h3>first</h3>
+            {tasks.map((task)=>(
+                <Singletask key={task.id} task={task}/>
+            ))}
         </div>
     )
 }
