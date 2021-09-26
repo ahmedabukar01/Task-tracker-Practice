@@ -36,7 +36,7 @@ button{
 .single-task{
   background:rgb(23, 23, 24);
   margin:3px 0;
-  border-radius: 6px;
+  border-radius: 4px;
   display:flex;
   color:#fff;
   justify-content:space-between;
@@ -52,4 +52,7 @@ button{
 .single-task h3{
   margin:5px 0;
   font-size: 24px;
+}
+.reminder{
+  border-left: 2px solid red;
 }

@@ -19,15 +19,20 @@ function App() {
     {
       id:3,
       text:'play with code',
-      reminder: false,
+      reminder: true,
       day: '12 oct 2021'
     }
   ])
 
+  // reminder
+  const toggleReminder = (id)=>{
+    setTasks(tasks.map((task)=>task.id===id? {...task, reminder:!task.reminder}:task))
+  }
+
   return (
     <div className="container">
      <Header />
-     <Tasks tasks={tasks}/>
+     <Tasks tasks={tasks} toggleReminder={toggleReminder}/>
     </div>
   );
 }
