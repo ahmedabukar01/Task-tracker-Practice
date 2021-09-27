@@ -1,8 +1,10 @@
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 import {useState} from 'react'
+import AddTask from './components/AddTask'
 
 function App() {
+  const [showTask,setShowTask] = useState(false);
   const [tasks,setTasks] = useState([
     {
       id:1,
@@ -35,7 +37,8 @@ function App() {
   }
   return (
     <div className="container">
-     <Header />
+     <Header setShowTask={setShowTask} showTask={showTask}/>
+     {showTask && <AddTask />}
      {tasks.length>0 ? <Tasks tasks={tasks} toggleReminder={toggleReminder}
      deleteTask={deleteTask}/>: (<p className="no-tasks">Sorry no Tasks to show</p>)}
     </div>

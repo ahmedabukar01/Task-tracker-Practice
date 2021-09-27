@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const Buttons = ({text,color}) => {
+export const Buttons = ({text,color,onClick}) => {
     return (
-        <button style={{backgroundColor:color}}>{text}</button>
+        <button style={{backgroundColor:color}}
+        onClick={onClick}
+        >{text}</button>
     )
 }
 
