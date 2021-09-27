@@ -26,13 +26,18 @@ function App() {
 
   // reminder
   const toggleReminder = (id)=>{
-    setTasks(tasks.map((task)=>task.id===id? {...task, reminder:!task.reminder}:task))
+    setTasks(tasks.map((task,index)=>task.id===id? {...task, reminder:!task.reminder}:task))
   }
 
+  // delete
+  const deleteTask = (id) =>{
+      setTasks(tasks.filter(task=> task.id !==id))
+  }
   return (
     <div className="container">
      <Header />
-     <Tasks tasks={tasks} toggleReminder={toggleReminder}/>
+     {tasks.length>0 ? <Tasks tasks={tasks} toggleReminder={toggleReminder}
+     deleteTask={deleteTask}/>: (<p className="no-tasks">Sorry no Tasks to show</p>)}
     </div>
   );
 }
