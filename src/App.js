@@ -2,6 +2,8 @@ import Header from './components/Header'
 import Tasks from './components/Tasks'
 import {useState} from 'react'
 import AddTask from './components/AddTask'
+import AddTask from './components/Footer'
+import {BrowserRouter as Router,Route} from 'react-router-dom'
 
 function App() {
   const [showTask,setShowTask] = useState(false);
@@ -38,7 +40,7 @@ function App() {
   return (
     <div className="container">
      <Header setShowTask={setShowTask} showTask={showTask}/>
-     {showTask && <AddTask />}
+     {showTask && <AddTask tasks={tasks} setTasks={setTasks}/>}
      {tasks.length>0 ? <Tasks tasks={tasks} toggleReminder={toggleReminder}
      deleteTask={deleteTask}/>: (<p className="no-tasks">Sorry no Tasks to show</p>)}
     </div>
