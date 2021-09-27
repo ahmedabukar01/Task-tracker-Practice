@@ -7,13 +7,17 @@ const AddTask = ({setTasks,tasks}) => {
 
    const getData = (e) => {
        e.preventDefault();
-       const id = tasks.length+1;
-       const task = {text,day,reminder,id}
-       setTasks([...tasks,task])
-
-       setText('')
-       setDay('')
-       setReminder(false)
+       if(text.length > 0){
+        const id = tasks.length+1;
+        const task = {text,day,reminder,id}
+        setTasks([...tasks,task])
+ 
+        setText('')
+        setDay('')
+        setReminder(false)
+       } else{
+        alert('please in the blank')
+       }
    }
 
     return (

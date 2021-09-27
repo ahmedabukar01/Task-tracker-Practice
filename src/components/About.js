@@ -3,7 +3,7 @@ import React from 'react'
 const About = () => {
     return (
         <div>
-            <P>Vertion 0.0.0.1</P>
+            <p>Vertion 0.0.0.1</p>
             <a href="/">Go back</a>
         </div>
     )
