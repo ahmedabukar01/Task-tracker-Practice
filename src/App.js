@@ -40,11 +40,12 @@ function App() {
     const data = await res.json();
     return data
   }
+  const getSomething = async()=>{
+    const getTasks = await fetchData();
+    setTasks(getTasks);
+  }
+  
   useEffect(()=>{
-    const getSomething = async()=>{
-      const getTasks = await fetchData();
-      setTasks(getTasks);
-    }
     getSomething();
   },[])
   return (
@@ -53,13 +54,13 @@ function App() {
      <Header setShowTask={setShowTask} showTask={showTask}/>
      <Route path="/" exact render={(props)=>(
        <>
-        {showTask && <AddTask tasks={tasks} setTasks={setTasks}/>}
+        {showTask && <AddTask getSomething={getSomething} tasks={tasks} setTasks={setTasks}/>}
         {tasks.length >0 ? <Tasks tasks={tasks} toggleReminder={toggleReminder}
         deleteTask={deleteTask}/>: (<p className="no-tasks">Sorry no Tasks to show</p>)}
+        <Footer />
        </>
      )}/>
      <Route path="/About" component={About}/>
-     <Footer />
     </div>
     </Router>
   );

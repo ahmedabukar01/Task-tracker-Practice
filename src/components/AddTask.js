@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
-const AddTask = ({setTasks,tasks}) => {
+const AddTask = ({setTasks,tasks,getSomething}) => {
    const [text,setText] = useState('')
    const [day,setDay] = useState('')
    const [reminder,setReminder] = useState(false)
@@ -9,9 +9,10 @@ const AddTask = ({setTasks,tasks}) => {
        e.preventDefault();
        if(text.length > 0){
         const task = {text,day,reminder}
-        setTasks([...tasks,task])
+        // setTasks([...tasks,task])
         postData(task);
-        
+        getSomething()
+
         setText('')
         setDay('')
         setReminder(false)
