@@ -8,10 +8,10 @@ const AddTask = ({setTasks,tasks}) => {
    const getData = (e) => {
        e.preventDefault();
        if(text.length > 0){
-        const id = tasks.length+1;
-        const task = {text,day,reminder,id}
+        const task = {text,day,reminder}
         setTasks([...tasks,task])
- 
+        postData(task);
+        
         setText('')
         setDay('')
         setReminder(false)
@@ -19,7 +19,14 @@ const AddTask = ({setTasks,tasks}) => {
         alert('please in the blank')
        }
    }
-
+   // add task to json-server
+   const postData = async (task) =>{
+       await fetch('http://localhost:8000/tasks',{
+           method: 'POST',
+           headers: {'content-type': 'application/json'},
+           body: JSON.stringify(task)
+       })
+   }
     return (
         <form className="add-task" onSubmit={getData} >
             <div className="input-field">

@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "cooking food",
+      "reminder": true,
+      "day": "2 feb 2021"
+    },
+    {
+      "text": "tesing",
+      "day": "4 jan 2021",
+      "reminder": false,
+      "id": 5
+    }
+  ]
+}
